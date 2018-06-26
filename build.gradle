@@ -2,7 +2,7 @@ apply plugin: 'java'
 
 apply plugin: 'application'
 
-mainClassName = 'jquil.Post'
+mainClassName = 'jquil.EPR'
 
 repositories {
    jcenter()
