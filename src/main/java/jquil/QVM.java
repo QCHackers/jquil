@@ -17,8 +17,9 @@ public class QVM {
     public QVM() {}
 
     public static String run(Program p) {
-        String user_id = "4c2166b5-a99d-433c-a289-afcfcd1f1bda";
-        String api_key = "nmRPAVunQl19TtQz9eMd11iiIsArtUDTaEnsSV6u";
+        Config c = new Config();
+        String user_id = c.get_id();
+        String api_key = c.get_key();
         String result = null;
         HttpClient httpClient = HttpClientBuilder.create().build();
 
