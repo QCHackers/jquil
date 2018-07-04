@@ -2,6 +2,10 @@ package jquil;
 
 public class g {
 
+    public static String I(int qubit) {
+        return "I " + Integer.toString(qubit) + "\n";
+    }
+
     public static String X(int qubit) {
         return "X " + Integer.toString(qubit) + "\n";
     }
