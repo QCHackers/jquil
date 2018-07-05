@@ -87,7 +87,31 @@ public class QVM {
         }
     }
 
-    public static ArrayList < String > wavefunction(Program p, List < Integer > classical_addresses) {
+    private static String prettyPrintWf(int n, ArrayList < String > cl) {
+        int rows = (int) Math.pow(2, n);
+        StringBuilder wf = new StringBuilder("");
+
+        for (int i = 0; i < rows; i++) {
+            if (!cl.get(i).equals("0")) {
+                StringBuilder sb = new StringBuilder("");
+                sb.append(cl.get(i));
+                sb.append("|");
+                for (int j = n - 1; j >= 0; j--) {
+
+                    sb.append((i / (int) Math.pow(2, j)) % 2);
+                }
+                sb.append(">");
+                if (i == rows - 1) {
+                    wf.append(sb);
+                } else {
+                    wf.append(sb + " + ");
+                }
+            }
+        }
+        return wf.toString();
+    }
+
+    public static String wavefunction(Program p, List < Integer > classical_addresses) {
         Config c = new Config();
         String user_id = c.get_id();
         String api_key = c.get_key();
@@ -145,7 +169,8 @@ public class QVM {
             e.printStackTrace();
 
         } finally {
-            return cl;
+            return prettyPrintWf(cl.size() / 2, cl);
+
 
         }
 
