@@ -23,6 +23,7 @@ public class QVM {
 
     public QVM() {}
 
+    @SuppressWarnings("unchecked")
     public static String run(Program p) {
         Config c = new Config();
         String user_id = c.get_id();
@@ -111,6 +112,7 @@ public class QVM {
         return wf.toString();
     }
 
+    @SuppressWarnings("unchecked")
     public static String wavefunction(Program p, List < Integer > classical_addresses) {
         Config c = new Config();
         String user_id = c.get_id();
