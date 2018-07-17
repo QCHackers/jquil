@@ -1,0 +1,3 @@
+[submodule "api/src/main/java/jgrove"]
+	path = api/src/main/java/jgrove
+	url = https://github.com/QCHackers/jgrove.git
