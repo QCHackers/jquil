@@ -13,7 +13,7 @@ You can get an API key from [Rigetti Forest](http://forest.rigetti.com/) if you 
 
 ## Hello World
 
-The Hello World of quantum programming is preparing and measuring the [Bell State](https://www.quantiki.org/wiki/bell-state). Let's do that!
+The Hello World of quantum programming is preparing and measuring the [Bell state](https://www.quantiki.org/wiki/bell-state). Let's do that!
 
 ```java
 WavefunctionSimulator wvfsim = new WavefunctionSimulator();
@@ -28,7 +28,7 @@ These qubits are entangled. The result will be
 ```
 Bell state 0.71|00> + 0.71|11>
 ```
-This Bell state will always measure to the same values.
+This Bell pair will always measure to the same values.
 
 ```java
 p.measure(0,0);
