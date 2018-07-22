@@ -1,38 +1,45 @@
-Quickstart
+# jquil
+Contact: vtomole@iastate.edu
 
-1. Open `jQuil/src/main/java/jquil/Post.java` and enter your Forest User Id and API key in the `user_id` and `api_key` string variables.
+## Installation
 
-2. ./gradlew build
+1. Open `~/.jquilconfig.properties ` and enter your Forest User Id and API key:
 
-3. ./gradlew run
+   ```
+   user_id=<YOUR USER ID>
+   api_key=<YOUR API KEY>
+   ```
+You can get an API key from [Rigetti Forest] (http://forest.rigetti.com/) if you don't have one.
 
-4. ./gradlew clean
+## Hello World
 
+The Hello World of quantum programming is preparing and measuring the [Bell State] (https://www.quantiki.org/wiki/bell-state).` Let's do that!
 
-#Probabilities
+```java
+	WavefunctionSimulator wvfsim = new WavefunctionSimulator();
+	
+        Program p = new Program(g.H(0),
+				g.CNOT(0,1));   
+
+	System.out.println("Bell state " +  Wavefunction.bra_ket(wvfsim.wavefunction(p)));         
 ```
-  WavefunctionSimulator wfnsim = new WavefunctionSimulator();
-  QVMConnection quantum_simulator = new QVMConnection();
-  Wavefunction wfn = new Wavefunction();
-  Program p = new Program(g.H(0));
-
-  wfn = wfnsim.wavefunction(p);
-  System.out.println("Before measurement: H|0> = " + wfn.amplitudes());
-
-  p.measure(0, 0);
-
-  for (int i = 0; i < 5; i++) {
-   wfn = wfnsim.wavefunction(p);
-   System.out.println("After measurement: " + wfn.amplitudes());
-  }
-
-```
+These qubits are entangled. The result will be
 
 ```
-Before measurement: H|0> = [0.71, 0.71]
-After measurement: [0, 1]
-After measurement: [0, 1]
-After measurement: [1, 0]
-After measurement: [1, 0]
-After measurement: [1, 0]
+Bell state 0.71|00> + 0.71|11>
 ```
+This Bell state will always measure to the same values.
+
+```java
+	p.measure(0,0);
+	p.measure(1,1);
+	
+	System.out.println("Bell state after measurement " + QVMConnection.run(p, Arrays.asList(0, 1)));
+
+```
+
+If one qubit measures to `1`, the other will be `1` and vice versa.
+
+
+
+Check out [jgrove] (https://github.com/QCHackers/jgrove) for more quantum programs.
