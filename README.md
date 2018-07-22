@@ -40,6 +40,8 @@ System.out.println("Bell state after measurement " + QVMConnection.run(p, Arrays
 
 If one qubit measures to `1`, the other will be `1` and vice versa.
 
+## jquil as a library
 
+`compile 'org.qchackers.jquil:api:0.0.1'` to use jquil in your programs.
 
 Check out [jgrove](https://github.com/QCHackers/jgrove) for more quantum programs.
